@@ -1,8 +1,8 @@
-import CommunityHub from "@/components/one";
+import One from "@/components/one";
 export default function Home() {
   return (
    <>
-   <CommunityHub/>
+   <One/>
    </>
   );
 }
