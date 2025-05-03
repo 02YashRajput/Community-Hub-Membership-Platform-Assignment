@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useMemo } from "react";
-
+import { Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { format, parseISO } from "date-fns";
 
@@ -1405,8 +1405,16 @@ const mockEvents: Event[] = [
   },
 ];
 
+
+const One: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CommunityHubContent />
+    </Suspense>
+  );
+};
 // Component definitions
-const CommunityHub: React.FC = () => {
+const CommunityHubContent: React.FC = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   // Global state
@@ -3584,4 +3592,4 @@ const [location, setLocation] = useState("");
   );
 };
 
-export default CommunityHub;
+export default One;
